@@ -20,7 +20,7 @@ public class ControllerConfig implements WebApplicationInitializer {
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
 
-		var root = new XmlWebApplicationContext();
+		XmlWebApplicationContext root = new XmlWebApplicationContext();
 
 		root.setServletContext(servletContext);
 

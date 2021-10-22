@@ -25,20 +25,20 @@ import java.util.concurrent.atomic.AtomicLong;
 @RequestMapping("/")
 public class MainController {
 
-	private final PersonDao personDao;
 	private static final String template = "Hello, %s!";
 	private final AtomicLong counter = new AtomicLong();
 
+/*	private final PersonDao personDao;
 	public MainController(PersonDao personDao) {
 		this.personDao = personDao;
-	}
+	}*/
 
 	@ResponseBody
 	@GetMapping(value = "/greeting", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 		return new Greeting(counter.incrementAndGet(), String.format(template, name));
 	}
-
+/*
 
 	@ResponseBody
 	@GetMapping(value = "/person", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -71,5 +71,5 @@ public class MainController {
 	public String deletePerson(@PathVariable("id") long id) {
 		personDao.delete(id);
 		return "person with id " + id + " was deleted";
-	}
+	}*/
 }

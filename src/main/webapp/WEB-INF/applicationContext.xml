@@ -19,40 +19,40 @@
     <mvc:annotation-driven/>
 
 
-    <bean id="personDao" class="org.example.restservice.dao.PersonDaoImpl">
-        <constructor-arg name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+<!--    <bean id="personDao" class="org.example.restservice.dao.PersonDaoImpl">-->
+<!--        <constructor-arg name="sessionFactory" ref="sessionFactory"/>-->
+<!--    </bean>-->
 
-    <bean id="mainController" class="org.example.restservice.controller.MainController">
-        <constructor-arg ref="personDao"/>
-    </bean>
+<!--    <bean id="mainController" class="org.example.restservice.controller.MainController">-->
+<!--        <constructor-arg ref="personDao"/>-->
+<!--    </bean>-->
 
 
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-          destroy-method="close">
-        <property name="driverClass" value="org.postgresql.Driver" />
-        <property name="jdbcUrl" value="jdbc:postgresql://localhost:5000/rest_service_db" />
-        <property name="user" value="postgres" />
-        <property name="password" value="1234" />
-    </bean>
+<!--    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"-->
+<!--          destroy-method="close">-->
+<!--        <property name="driverClass" value="org.postgresql.Driver" />-->
+<!--        <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/rest_service_db" />-->
+<!--        <property name="user" value="postgres" />-->
+<!--        <property name="password" value="1234" />-->
+<!--    </bean>-->
 
-    <bean id="sessionFactory"
-          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="org.example.restservice.entity" />
-        <property name="hibernateProperties">
-            <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</prop>
-                <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
-            </props>
-        </property>
-    </bean>
+<!--    <bean id="sessionFactory"-->
+<!--          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">-->
+<!--        <property name="dataSource" ref="dataSource" />-->
+<!--        <property name="packagesToScan" value="org.example.restservice.entity" />-->
+<!--        <property name="hibernateProperties">-->
+<!--            <props>-->
+<!--                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</prop>-->
+<!--                <prop key="hibernate.show_sql">true</prop>-->
+<!--                <prop key="hibernate.hbm2ddl.auto">update</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
 
-    <bean id="transactionManager"
-          class="org.springframework.orm.hibernate5.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
-    <tx:annotation-driven transaction-manager="transactionManager" />
+<!--    <bean id="transactionManager"-->
+<!--          class="org.springframework.orm.hibernate5.HibernateTransactionManager">-->
+<!--        <property name="sessionFactory" ref="sessionFactory"/>-->
+<!--    </bean>-->
+<!--
+    <tx:annotation-driven transaction-manager="transactionManager" />-->
 </beans>
